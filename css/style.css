@@ -1,77 +1,75 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* =========================
+   PAGE
+========================= */
 
 html,
 body {
+    margin: 0;
+    padding: 0;
     width: 100%;
     min-height: 100%;
-    font-family: "Poppins", sans-serif;
-    overflow: hidden;
 }
 
 body {
-    min-height: 100dvh;
+    font-family: "Poppins", sans-serif;
 }
 
 
 /* =========================
-   BACKGROUND
+   PINK BACKGROUND AREA
 ========================= */
 
 .main-screen {
-    position: relative;
-    width: 100vw;
-    height: calc(100dvh - 90px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
 
     background-image: url("../resources/periodbackground.png");
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
+
+    /* CENTRE THE WHITE CARD */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 40px;
 }
 
+
 /* =========================
-   MAIN CARD
+   WHITE CARD
 ========================= */
 
 .container {
-    width: min(90%, 720px);
+    width: min(900px, 85%);
+    box-sizing: border-box;
 
-    padding: 40px;
+    margin: 0 auto;
 
-    border-radius: 38px;
+    padding: 45px 60px;
 
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.94);
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    border-radius: 45px;
 
     text-align: center;
 
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
-
-    gap: 24px;
 }
 
 
 /* =========================
-   CAT GIF
+   GIF
 ========================= */
+
+.image-box {
+    width: 100%;
+    text-align: center;
+}
 
 .actual-image {
     display: flex;
@@ -80,28 +78,25 @@ body {
 }
 
 .gif {
-    width: min(300px, 55vw);
+    display: block;
+    width: 180px;
+    max-width: 40%;
     height: auto;
-    object-fit: contain;
+    margin: 0 auto;
 }
 
 
 /* =========================
-   QUESTION
+   TEXT
 ========================= */
 
 .text-one {
-    margin-top: 10px;
+    text-align: center;
 }
 
 .text-one p {
-    font-size: clamp(28px, 4vw, 42px);
-    line-height: 1.35;
-    font-weight: 400;
-}
-
-.text-one b {
-    font-weight: 600;
+    margin: 10px 0 20px;
+    text-align: center;
 }
 
 
@@ -111,57 +106,26 @@ body {
 
 .yes-no {
     width: 100%;
+
     display: flex;
     justify-content: center;
 }
 
 .yes {
-    width: min(420px, 85%);
-
-    min-height: 95px;
+    width: min(500px, 80%);
+    padding: 20px;
 
     border: none;
     border-radius: 50px;
 
-    font-family: "Poppins", sans-serif;
+    background: #ff78a0;
+    color: white;
 
-    font-size: clamp(28px, 4vw, 38px);
+    font-family: "Poppins", sans-serif;
+    font-size: 28px;
     font-weight: 600;
 
     cursor: pointer;
-
-    background: #ff7fa5;
-    color: white;
-
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.15);
-
-    transition:
-        transform 0.15s ease,
-        opacity 0.15s ease;
-}
-
-
-/* iPad touch feedback */
-
-.yes:active {
-    transform: scale(0.96);
-}
-
-.yes:disabled {
-    opacity: 0.6;
-}
-
-
-/* =========================
-   CONFIRMATION MESSAGE
-========================= */
-
-.confirmation {
-    height: 35px;
-
-    font-size: 20px;
-    font-weight: 500;
 }
 
 
@@ -170,115 +134,23 @@ body {
 ========================= */
 
 .footer {
-    height: 90px;
+    min-height: 100px;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
-    gap: 20px;
-
-    padding:
-        10px
-        max(30px, env(safe-area-inset-right))
-        max(10px, env(safe-area-inset-bottom))
-        max(30px, env(safe-area-inset-left));
+    box-sizing: border-box;
+    padding: 20px 30px;
 
     background: white;
+}
 
-    font-size: 16px;
+.footer p {
+    margin: 0;
 }
 
 #pad-count {
-    font-size: 22px;
     font-weight: 600;
-    white-space: nowrap;
-}
-
-
-/* =========================
-   iPAD PORTRAIT
-========================= */
-
-@media
-    (min-width: 700px)
-    and (max-width: 1100px)
-    and (orientation: portrait) {
-
-    .container {
-        width: 86%;
-        padding: 50px 45px;
-    }
-
-    .gif {
-        width: 330px;
-    }
-
-    .yes {
-        min-height: 105px;
-    }
-
-}
-
-
-/* =========================
-   iPAD LANDSCAPE
-========================= */
-
-@media
-    (min-width: 900px)
-    and (orientation: landscape) {
-
-    .main-screen {
-        height: calc(100dvh - 75px);
-    }
-
-    .container {
-        width: min(82%, 800px);
-        padding: 25px 45px;
-        gap: 15px;
-    }
-
-    .gif {
-        width: 210px;
-    }
-
-    .text-one p {
-        font-size: 30px;
-    }
-
-    .yes {
-        min-height: 80px;
-        width: 360px;
-        font-size: 30px;
-    }
-
-    .footer {
-        height: 75px;
-    }
-
-}
-
-
-/* =========================
-   SMALLER iPAD
-========================= */
-
-@media (max-height: 800px) {
-
-    .container {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        gap: 12px;
-    }
-
-    .gif {
-        width: 180px;
-    }
-
-    .yes {
-        min-height: 75px;
-    }
-
+    font-size: 22px;
 }
