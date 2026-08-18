@@ -11,33 +11,37 @@
 html,
 body {
     width: 100%;
-    min-height: 100%;
-    font-family: "Poppins", sans-serif;
-    overflow: hidden;
+    height: 100%;
 }
 
 body {
     min-height: 100dvh;
+
+    font-family: "Poppins", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
 }
 
 
 /* =========================
-   MAIN PERIOD PAD BACKGROUND
+   MAIN PINK AREA
 ========================= */
 
 .main-screen {
-    position: relative;
+    /* Take up ALL remaining space above footer */
+    flex: 1;
 
-    width: 100vw;
-    height: calc(100dvh - 90px);
+    width: 100%;
 
-    /* Period pad background */
     background-image: url("../resources/periodbackground.png");
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
 
-    /* Centre white card */
+    /* EXACT CENTRING OF CARD */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +53,7 @@ body {
 
 
 /* =========================
-   REMOVE OLD VIDEO BACKGROUND
+   REMOVE OLD VIDEO
 ========================= */
 
 .video-background {
@@ -58,22 +62,30 @@ body {
 
 
 /* =========================
-   MAIN WHITE CARD
+   WHITE CARD / BANNER
 ========================= */
 
 .container {
-    width: min(90%, 850px);
+    width: min(900px, 82%);
 
     padding: 35px 45px;
 
-    border-radius: 38px;
+    background: rgba(255, 255, 255, 0.94);
 
-    background: rgba(255, 255, 255, 0.92);
+    border-radius: 40px;
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.08);
 
-    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* No offsets */
+    position: relative;
+    top: 0;
+    left: 0;
+
+    margin: 0;
 
     display: flex;
     flex-direction: column;
@@ -81,17 +93,14 @@ body {
     align-items: center;
     justify-content: center;
 
-    gap: 20px;
+    text-align: center;
 
-    margin: auto;
-
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.08);
+    gap: 18px;
 }
 
 
 /* =========================
-   IMAGE AREA
+   IMAGE + QUESTION
 ========================= */
 
 .image-box {
@@ -113,15 +122,15 @@ body {
     width: 100%;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .gif {
     display: block;
 
-    width: min(230px, 50vw);
-    max-width: 100%;
+    width: 200px;
+    max-width: 45vw;
 
     height: auto;
 
@@ -132,7 +141,7 @@ body {
 
 
 /* =========================
-   QUESTION TEXT
+   TEXT
 ========================= */
 
 .text-one {
@@ -144,15 +153,14 @@ body {
 }
 
 .text-one p {
-    font-size: clamp(26px, 3vw, 38px);
+    margin: 0;
 
+    font-size: 30px;
     line-height: 1.35;
 
     font-weight: 400;
 
     text-align: center;
-
-    margin: 0;
 }
 
 .text-one b {
@@ -168,8 +176,8 @@ body {
     width: 100%;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 
@@ -178,24 +186,24 @@ body {
 ========================= */
 
 .yes {
-    width: min(460px, 85%);
+    width: min(460px, 80%);
 
-    min-height: 85px;
+    min-height: 80px;
 
     padding: 15px 30px;
 
     border: none;
     border-radius: 50px;
 
+    background: #ff7fa5;
+    color: white;
+
     font-family: "Poppins", sans-serif;
 
-    font-size: clamp(27px, 3vw, 36px);
+    font-size: 30px;
     font-weight: 600;
 
     cursor: pointer;
-
-    background: #ff7fa5;
-    color: white;
 
     box-shadow:
         0 10px 25px rgba(0, 0, 0, 0.15);
@@ -204,11 +212,6 @@ body {
         transform 0.15s ease,
         opacity 0.15s ease;
 }
-
-
-/* =========================
-   BUTTON TOUCH EFFECT
-========================= */
 
 .yes:active {
     transform: scale(0.96);
@@ -220,16 +223,28 @@ body {
 
 
 /* =========================
-   CONFIRMATION MESSAGE
+   CONFIRMATION
 ========================= */
 
-.confirmation {
-    min-height: 30px;
+/*
+   IMPORTANT:
+   Don't reserve empty space when
+   there is no confirmation message.
+*/
+
+.confirmation:empty {
+    display: none;
+}
+
+.confirmation:not(:empty) {
+    display: block;
 
     font-size: 20px;
     font-weight: 500;
 
     text-align: center;
+
+    margin-top: 5px;
 }
 
 
@@ -238,12 +253,14 @@ body {
 ========================= */
 
 .footer {
-    width: 100%;
+    flex-shrink: 0;
 
-    height: 90px;
+    width: 100%;
+    height: 75px;
+
+    background: white;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
@@ -255,8 +272,6 @@ body {
         max(10px, env(safe-area-inset-bottom))
         max(30px, env(safe-area-inset-left));
 
-    background: white;
-
     font-size: 16px;
 }
 
@@ -264,14 +279,8 @@ body {
     margin: 0;
 }
 
-
-/* =========================
-   PAD COUNTER
-========================= */
-
 #pad-count {
     font-size: 22px;
-
     font-weight: 600;
 
     white-space: nowrap;
@@ -298,40 +307,39 @@ body {
     }
 
     .gif {
-        width: 300px;
+        width: 280px;
+    }
+
+    .text-one p {
+        font-size: 34px;
     }
 
     .yes {
-        min-height: 100px;
-    }
+        min-height: 95px;
 
+        font-size: 34px;
+    }
 }
 
 
 /* =========================
-   iPAD / DESKTOP LANDSCAPE
+   LANDSCAPE / COMPUTER
 ========================= */
 
 @media
     (min-width: 900px)
     and (orientation: landscape) {
 
-    .main-screen {
-        height: calc(100dvh - 75px);
-
-        padding: 25px;
-    }
-
     .container {
-        width: min(82%, 900px);
+        width: min(900px, 82%);
 
-        padding: 25px 45px;
+        padding: 30px 45px;
 
         gap: 15px;
     }
 
     .gif {
-        width: 200px;
+        width: 190px;
     }
 
     .text-one p {
@@ -339,22 +347,17 @@ body {
     }
 
     .yes {
-        min-height: 80px;
-
         width: 460px;
+
+        min-height: 75px;
 
         font-size: 30px;
     }
-
-    .footer {
-        height: 75px;
-    }
-
 }
 
 
 /* =========================
-   SMALLER HEIGHT SCREENS
+   SHORT SCREENS
 ========================= */
 
 @media (max-height: 800px) {
@@ -364,25 +367,33 @@ body {
     }
 
     .container {
-        padding-top: 18px;
-        padding-bottom: 18px;
+        padding: 20px 40px;
 
-        gap: 12px;
+        gap: 10px;
     }
 
     .gif {
-        width: 170px;
+        width: 150px;
+    }
+
+    .text-one p {
+        font-size: 26px;
     }
 
     .yes {
-        min-height: 70px;
+        min-height: 65px;
+
+        font-size: 26px;
     }
 
+    .footer {
+        height: 65px;
+    }
 }
 
 
 /* =========================
-   PHONE SCREENS
+   PHONE
 ========================= */
 
 @media (max-width: 600px) {
@@ -393,11 +404,8 @@ body {
 
     .main-screen {
         min-height: calc(100dvh - 120px);
-        height: auto;
 
         padding: 20px;
-
-        background-position: center center;
     }
 
     .container {
@@ -409,19 +417,19 @@ body {
     }
 
     .gif {
-        width: 180px;
+        width: 170px;
     }
 
     .text-one p {
-        font-size: 24px;
+        font-size: 23px;
     }
 
     .yes {
         width: 90%;
 
-        min-height: 70px;
+        min-height: 65px;
 
-        font-size: 26px;
+        font-size: 25px;
     }
 
     .footer {
@@ -443,5 +451,4 @@ body {
     #pad-count {
         font-size: 20px;
     }
-
 }
