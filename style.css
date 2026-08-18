@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.main-screen {
+    position: relative;
+    width: 100vw;
+    height: calc(100dvh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.container {
+    width: min(90%, 720px);
+
+    padding: 40px;
+
+    border-radius: 38px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+}
+
+
+/* =========================
+   CAT GIF
+========================= */
+
+.actual-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gif {
+    width: min(300px, 55vw);
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =========================
+   QUESTION
+========================= */
+
+.text-one {
+    margin-top: 10px;
+}
+
+.text-one p {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.35;
+    font-weight: 400;
+}
+
+.text-one b {
+    font-weight: 600;
+}
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+.yes-no {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.yes {
+    width: min(420px, 85%);
+
+    min-height: 95px;
+
+    border: none;
+    border-radius: 50px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+
+    cursor: pointer;
+
+    background: #ff7fa5;
+    color: white;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+/* iPad touch feedback */
+
+.yes:active {
+    transform: scale(0.96);
+}
+
+.yes:disabled {
+    opacity: 0.6;
+}
+
+
+/* =========================
+   CONFIRMATION MESSAGE
+========================= */
+
+.confirmation {
+    height: 35px;
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding:
+        10px
+        max(30px, env(safe-area-inset-right))
+        max(10px, env(safe-area-inset-bottom))
+        max(30px, env(safe-area-inset-left));
+
+    background: white;
+
+    font-size: 16px;
+}
+
+#pad-count {
+    font-size: 22px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   iPAD PORTRAIT
+========================= */
+
+@media
+    (min-width: 700px)
+    and (max-width: 1100px)
+    and (orientation: portrait) {
+
+    .container {
+        width: 86%;
+        padding: 50px 45px;
+    }
+
+    .gif {
+        width: 330px;
+    }
+
+    .yes {
+        min-height: 105px;
+    }
+
+}
+
+
+/* =========================
+   iPAD LANDSCAPE
+========================= */
+
+@media
+    (min-width: 900px)
+    and (orientation: landscape) {
+
+    .main-screen {
+        height: calc(100dvh - 75px);
+    }
+
+    .container {
+        width: min(82%, 800px);
+        padding: 25px 45px;
+        gap: 15px;
+    }
+
+    .gif {
+        width: 210px;
+    }
+
+    .text-one p {
+        font-size: 30px;
+    }
+
+    .yes {
+        min-height: 80px;
+        width: 360px;
+        font-size: 30px;
+    }
+
+    .footer {
+        height: 75px;
+    }
+
+}
+
+
+/* =========================
+   SMALLER iPAD
+========================= */
+
+@media (max-height: 800px) {
+
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        gap: 12px;
+    }
+
+    .gif {
+        width: 180px;
+    }
+
+    .yes {
+        min-height: 75px;
+    }
+
+}

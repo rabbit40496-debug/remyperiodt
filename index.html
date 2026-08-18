@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Important for iPad -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Period Pad Counter</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="resources/fav.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+
+<body>
+
+    <section class="main-screen">
+
+        <!-- Background Video -->
+        <div class="video-background">
+            <video
+                id="bg-video"
+                autoplay
+                loop
+                muted
+                playsinline
+            >
+                <source src="resources/heart.webm" type="video/webm">
+            </video>
+        </div>
+
+
+        <!-- Main Content -->
+        <div class="container">
+
+            <div class="image-box">
+
+                <div class="actual-image">
+                    <img
+                        src="resources/cat-heart.gif"
+                        alt="Cute Period Pad Gif"
+                        class="gif"
+                        id="gif"
+                    >
+                </div>
+
+                <div class="text-one">
+                    <p id="text">
+                        <b>Hello!</b><br>
+                        Did you take one period pad? ❤️
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- YES BUTTON -->
+            <div class="yes-no">
+
+                <button
+                    type="button"
+                    class="yes"
+                    id="yes"
+                >
+                    Yes 💕
+                </button>
+
+            </div>
+
+
+            <!-- Confirmation -->
+            <div
+                class="confirmation"
+                id="confirmation"
+                aria-live="polite"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            By Elysia, Rui Min, Marissa, Yasira • Made with love 💕
+        </p>
+
+        <p id="pad-count">
+            Pads Taken Today: 0
+        </p>
+
+    </footer>
+
+
+    <!-- Firebase -->
+    <script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>
