@@ -3,7 +3,7 @@ from "https://esm.sh/@supabase/supabase-js@2";
 
 
 const supabaseUrl =
-    "https://wovvnnbcgperpmoufctd.supabase.co";
+    "https://zavihytoornyjsgpzall.supabase.co";
 
 
 const supabaseKey =
