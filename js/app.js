@@ -7,8 +7,7 @@ const supabaseUrl =
 
 
 const supabaseKey =
-    "sb_publishable_TLScMF6KOG6-vv0SmCIglw_tlco63H7";
-
+    "sb_publishable_-3maTypkZk7Gpf21Q-3a0Q_5ixrsPry";
 
 const supabase =
     createClient(
